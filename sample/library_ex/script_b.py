@@ -1,0 +1,1 @@
+from folder_b.module_b3 import function_b3from script_a import function_script1function_script1()
