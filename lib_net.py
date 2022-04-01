@@ -75,41 +75,8 @@ class folder(basic,folder_method):
         
         #self.makeup = np.array([0,0,0],dtype="int") #[folders,pyfiles,miscfiles]
         self.process()
-        '''
-        for i in range(len(self.contents)):
-            name_i = self.contents[i]
-            path = self.root
-            
-            try:
-                a_test = folder(name_i,path)
-                type_i = "folder"
-            except:
-                if self.contents[i].split(".")[1] == "py":
-                    type_i = "pyfile"
-                else:
-                    type_i = "miscfile"
-            
-            if type_i == "folder":
-                self.objects.append("folder" + str(i))
-                self.objects[i] = folder(name_i,self.root)
-                self.objects[i].launch(self.subfolders)
-            
-            elif type_i == "pyfile":
-                self.objects.append("pyfile" + str(i))
-                self.objects[i] = py_file(name_i,self.root)
-                self.objects[i].launch(self.subfolders)
-                
-            elif type_i == "miscfile":
-                self.objects.append("miscfile" + str(i))
-                self.objects[i] = misc_file(name_i,self.root)
-                self.objects[i].launch(self.subfolders)
-        '''
         
         master_subfolder.append(self.subfolders)
-
-        
-        
-        
 
 class py_file(basic):
     def __init__(self,name,directory):
@@ -125,49 +92,15 @@ class misc_file(basic):
         
 class process(folder_method):
     def __init__(self,root):
-        
-        
-        
+
         self.root = root
         self.contents = os.listdir(self.root)
-        #print(os.listdir(root))
-        
-        #print(self.master_contents)
         
         self.objects = []
         self.subfolders = []
         
         #self.makeup = np.array([0,0,0],dtype="int") #[folders,pyfiles,miscfiles]
-        self.process()
-        '''
-        for i in range(len(self.contents)):
-            name_i = self.contents[i]
-            path = self.root
-            
-            try:
-                a_test = folder(name_i,path)
-                type_i = "folder"
-            except:
-                if self.contents[i].split(".")[1] == "py":
-                    type_i = "pyfile"
-                else:
-                    type_i = "miscfile"
-            
-            if type_i == "folder":
-                self.objects.append("folder" + str(i))
-                self.objects[i] = folder(name_i,self.root)
-                self.objects[i].launch(self.subfolders)
-            
-            elif type_i == "pyfile":
-                self.objects.append("pyfile" + str(i))
-                self.objects[i] = py_file(name_i,self.root)
-                self.objects[i].launch(self.subfolders)
-                
-            elif type_i == "miscfile":
-                self.objects.append("miscfile" + str(i))
-                self.objects[i] = misc_file(name_i,self.root)
-                self.objects[i].launch(self.subfolders)
-        '''    
+        self.process()  
 
 target = "sample"
 alpha = process(target)
