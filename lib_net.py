@@ -19,11 +19,18 @@ class folder_method:
             path = self.root
             
             try:
-                a_test = folder(name_i,path)
-                type_i = "folder"
+                if name_i == "__pycache__":
+                    type_i = "miscfile"
+                else:
+                    a_test = folder(name_i,path)
+                    type_i = "folder"
             except:
-                if self.contents[i].split(".")[1] == "py":
+                
+                c_i = self.contents[i]
+                
+                if c_i.split(".")[1] == "py":
                     type_i = "pyfile"
+                
                 else:
                     type_i = "miscfile"
             
@@ -107,4 +114,4 @@ alpha = process(target)
 
 printm(alpha.subfolders)
 print("-----")
-print(alpha.objects[1].objects)
+print(alpha.objects)
