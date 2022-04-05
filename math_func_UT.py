@@ -7,11 +7,7 @@ from math_func import *
 
 import pytest
 
-
-
 #######
-
-
 
 def test_match_alg():
     
@@ -50,7 +46,6 @@ def test_find_subsequences():
     #print(actual)
     
     #expected = [[[1,0],4]]
-    
     assert actual[0][0][0] == 1
     assert actual[0][0][1] == 0
     assert actual[0][1] == 4
