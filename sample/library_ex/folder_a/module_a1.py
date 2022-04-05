@@ -1,1 +1,1 @@
-def function_a1():    print("mod_a1_a")
+from folder_b.module_b1 import *def function_a1():    print("mod_a1_a")

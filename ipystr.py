@@ -18,14 +18,23 @@ target = "sample"
 
 alpha = mn(target)
 
+
+
+
 '''
 printmi(alpha.modules)
 print("---")
 printmi(alpha.connections)
-'''
 
+
+'''
+#printmi(alpha.unchecked_connections)
+
+
+'''
 beta = pyyed.Graph()
 
 for module in alpha.modules:
     beta.add_node(module)
     
+'''

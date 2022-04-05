@@ -1,6 +1,9 @@
 '''
 module path resolver
 '''
+#################### Imports
+import numpy as np
+from math_func import *
 
 #################### Class
 class modulepath:
@@ -36,10 +39,6 @@ class modulepath:
                 self.module += "/"
             else:
                 null = 0
-        
-    def test_sequence(self):
-        
-        optimum_seq = 
         
             
         

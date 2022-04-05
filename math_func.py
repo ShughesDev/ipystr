@@ -97,3 +97,16 @@ def find_subsequences(a,b):
         window_len += 1
     
     return(scores[max_window_len-2])
+
+def isin(x,array):
+    
+    ret = False
+    
+    for i in array:
+        if i == x:
+            ret = True
+        else:
+            null = 0
+            
+    return ret
+        

@@ -66,3 +66,7 @@ def test_eq_ar():
     actual = eq_ar(a,b)
     
     assert actual
+    
+def test_isin():
+    
+    assert isin(1,[1,2,3])
