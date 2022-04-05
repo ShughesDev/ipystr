@@ -62,12 +62,12 @@ class py_extract:
         for line in self.frm:
             line_a = line.split("from ")[1]
             line_b = line_a.split(" import ")
-            source = line_b[0]
+            module = line_b[0]
             #print(line_b)
             func = line_b[1].split(" as")[0].split(", ")
             
             for function in func:
-                self.connections.append([self.path,source,function])
+                self.connections.append([self.path,module,function])
                 
     def filter_std(self):
         
@@ -76,10 +76,5 @@ class py_extract:
             source = line_b.split(" as")[0].split(", ")
             
             for module in source:
+                
                 self.connections.append([self.path,module,"*"])
-    
-        
-
-path = "sample"
-alpha = py_extract(path)
-
