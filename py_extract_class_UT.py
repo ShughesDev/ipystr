@@ -80,10 +80,9 @@ def test_py_extract_filter_frm():
             assert actual[i][j] == expected[i][j]
             #print(actual[i][j],",",expected[i][j],"\n-------\n")
         #print(actual[i],"\n",expected[i],"\n-------\n")
-        
     
 def test_py_extract_filter_std():
-        
+    
     alpha = py_extract()
     
     alpha.path = "test_source"

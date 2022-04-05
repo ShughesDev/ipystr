@@ -37,7 +37,9 @@ class modulepath:
             else:
                 null = 0
         
+    def test_sequence(self):
         
+        optimum_seq = 
         
             
         
