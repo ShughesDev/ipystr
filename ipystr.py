@@ -89,7 +89,7 @@ def ipystr(target,outname):
     for connection in alpha.connections:
         source = connection[0]
         dest = connection[1]
-        beta.add_edge(source,dest)    
+        beta.add_edge(dest,source)    
     
     beta.write_graph(outname+".graphml")     
     
