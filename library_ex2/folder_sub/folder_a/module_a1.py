@@ -1,0 +1,1 @@
+from folder_main.folder_b.module_b1 import *def function_a1():    print("mod_a1_a")

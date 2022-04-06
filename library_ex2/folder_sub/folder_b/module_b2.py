@@ -1,0 +1,1 @@
+def function_b2():    print("mod_b2_a")

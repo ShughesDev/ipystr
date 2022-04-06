@@ -4,4 +4,4 @@ still to do:
 
 bugfixes:
 
-    - wierd double slash bug
+    - wierd double slash bug - suspect it something to do with modules importing across different folder structures

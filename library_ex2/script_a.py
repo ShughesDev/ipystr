@@ -1,0 +1,1 @@
+from folder_main.folder_a.module_a1 import function_a1from folder_sub.folder_b.module_b2 import function_b2def function_script1():    print("scripty")

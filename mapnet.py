@@ -111,6 +111,8 @@ class mapnet:
             
             found_file = 0
             
+            query_found = False
+            
             for i in range(len(raw_dest)-1):
                 dest_path = slash(raw_dest.split("/"),i+1)
                 try:
@@ -123,8 +125,14 @@ class mapnet:
                     found_file = 1
                     
                     output = test_dest_path
+                    
+                    query_found = True
                 
                 except:
                     null = 0
                     
-            self.connections.append([connection[0],output,connection[2]])
+            if query_found:
+                self.connections.append([connection[0],output,connection[2]])
+            
+            else:
+                null = 0
