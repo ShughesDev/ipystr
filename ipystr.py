@@ -14,7 +14,7 @@ from mapnet import mapnet as mn
 
 ###################################### Program
 
-target = "sample"
+target = "library_ex"
 
 alpha = mn(target)
 
@@ -31,10 +31,15 @@ printmi(alpha.connections)
 #printmi(alpha.unchecked_connections)
 
 
-'''
+
 beta = pyyed.Graph()
 
 for module in alpha.modules:
     beta.add_node(module)
     
-'''
+for connection in alpha.connections:
+    source = connection[0]
+    dest = connection[1]
+    beta.add_edge(source,dest)
+    
+beta.write_graph(target+".graphml")

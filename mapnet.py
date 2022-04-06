@@ -89,12 +89,3 @@ class mapnet:
                     null = 0
                     
             self.connections.append([connection[0],output,connection[2]])
-            
-'''    
-alpha = mapnet("library_ex")
-
-printm(alpha.connections_raw)
-print("---")
-printm(alpha.connections)
-
-'''
