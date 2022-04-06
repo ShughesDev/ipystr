@@ -22,6 +22,7 @@ class mapnet:
     def launch(self):
         self.find_modules()
         self.find_connections()
+        self.find_folders()
         
     def expand(self,root):
         
@@ -52,6 +53,44 @@ class mapnet:
                 self.modules.append(x)
             else:
                 pass
+            
+    def find_folders(self):
+        
+        folders_unsorted = []
+        
+        for module in self.modules:
+            
+            module_path = module.split("/")
+            
+            for i in range(len(module_path)-1):
+                
+                grab = slash(module_path,(1+i))
+                
+                if isin(grab,folders_unsorted) == False:
+                    folders_unsorted.append(grab)
+                else:
+                    null = 0 
+        
+        depth = 0
+        
+        for folder in folders_unsorted:
+            if len(folder.split("/")) > depth:
+                depth = len(folder.split("/"))
+        
+        
+        
+        self.folders = np.zeros((depth),dtype='object')
+        
+        #print(self.folders)
+        #print(len(self.folders))
+        for i in range(len(self.folders)):
+            self.folders[i] = []
+        
+        for folder in folders_unsorted:
+            folder_depth = len(folder.split("/"))
+            
+            self.folders[folder_depth-1].append(folder)
+        
 
     def find_connections(self):
         
