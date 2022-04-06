@@ -55,51 +55,46 @@ class mapnet:
 
     def find_connections(self):
         
-        unchecked_connections = []    
+        self.connections_raw = []    
         
         for module in self.modules:
-            unchecked_connections.extend(pe(module).connections)
+            self.connections_raw.extend(pe(module).connections)
         
-        self.unchecked_connections = unchecked_connections
         
         self.connections = []
-        #check module is in same location as import dest
-        for uc in unchecked_connections:
-            path_loc_splt = uc[0].split(".")[0].split("/")
-            mod_spl = uc[1].split(".")
+        
+        for connection in self.connections_raw:
             
-            path = ""
-            for i in range(len(path_loc_splt)-1):
-                path += path_loc_splt[i]
-                if i != len(path_loc_splt)-2:
-                    path += "/"
-                else:
+            raw_dest = connection[0]
+            
+            raw_source = connection[1]
+            raw_source_proc = slash(raw_source.split(".")) + ".py"
+            
+            found_file = 0
+            
+            for i in range(len(raw_dest)-1):
+                dest_path = slash(raw_dest.split("/"),i+1)
+                try:
+                    test_dest_path = dest_path + "/" + raw_source_proc
+                    
+                    test_openfile = open(dest_path + "/" + raw_source_proc,"r")
+                    
+                    test_openfile.close()
+                    
+                    found_file = 1
+                    
+                    output = test_dest_path
+                
+                except:
                     null = 0
                     
-            check = uc[1].split(".")[0]
+            self.connections.append([connection[0],output,connection[2]])
             
-            if isin(check,os.listdir(path)):
-                #folder IS case
-                c0 = uc[0].split(".")[0]
-                c1 = path
-                
-                for i in range(len(mod_spl)):
-                    c1 += "/"
-                    c1 += mod_spl[i]
-                
-                self.connections.append([c0,c1,uc[2]])
-                
-            elif isin(check+".py",os.listdir(path)):
-                #.py file IS case
-                c0 = uc[0].split(".")[0]
-                c1 = path
-                
-                for i in range(len(mod_spl)):
-                    c1 += "/"
-                    c1 += mod_spl[i]
-                
-                self.connections.append([c0,c1,uc[2]])
-                
-            else:
-                # isn't case
-                null = 0
+'''    
+alpha = mapnet("library_ex")
+
+printm(alpha.connections_raw)
+print("---")
+printm(alpha.connections)
+
+'''
