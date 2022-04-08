@@ -9,5 +9,6 @@ bugfixes:
 
     - add support for "from .a import b" format
 
+    - add support for .png & .svg files
 
     - complete unit tests
